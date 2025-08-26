@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Personal - Jardy</title>
+  <style>
+    body {margin:0; font-family:'Segoe UI', sans-serif; background:#f5f7fa; color:#333;}
+
+    /* Banner */
+    #banner {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color:white; text-align:center; padding:80px 20px;
+    }
+    #banner h1 {font-size:2.8em; margin:0;}
+    #banner span {font-size:1.2em;}
+
+    /* Menú */
+    nav {
+      background:#2c3e50; padding:10px; display:flex; flex-wrap:wrap;
+      justify-content:center; gap:15px; position:sticky; top:0; z-index:1000;
+    }
+    nav button {
+      background:#3498db; border:none; color:white; padding:10px 15px;
+      border-radius:6px; cursor:pointer; transition:0.3s;
+    }
+    nav button:hover {background:#2980b9;}
+
+    /* Contenido */
+    main {padding:40px;}
+    section {margin-bottom:40px;}
+    h2 {color:#2c3e50;}
+    .card {
+      background:white; padding:20px; margin:10px 0;
+      border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+    .columns {
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px;
+    }
+
+    /* Footer */
+    footer {
+      background:#2c3e50; color:white; text-align:center; padding:15px; margin-top:40px;
+    }
+
+    /* Perfil */
+    .perfil {text-align:center;}
+    .perfil img {
+      width:150px; height:150px; border-radius:50%;
+      border:4px solid white; box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+    .perfil h2 {margin:10px 0 0 0;}
+    .perfil p {color:#555;}
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <div id="banner">
+    <h1>🌟 Portafolio de Jardy</h1>
+    <span id="mensaje"></span>
+  </div>
+
+  <!-- Menú -->
+  <nav>
+    <button onclick="mostrar('sobre')">🙋 Sobre mí</button>
+    <button onclick="mostrar('formacion')">🎓 Formación</button>
+    <button onclick="mostrar('intereses')">✨ Intereses</button>
+    <button onclick="mostrar('cursos')">📚 Mis Cursos</button>
+    <button onclick="mostrar('proyectos')">💻 Proyectos</button>
+    <button onclick="mostrar('extras')">🌈 Más de mí</button>
+    <button onclick="mostrar('contacto')">📞 Contacto</button>
+  </nav>
+
+  <!-- Contenido -->
+  <main>
+    <section id="contenido" class="card">
+      <p>Bienvenida a mi portafolio 💙 selecciona una sección del menú 👆</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Jardy - Computación Científica - UNMSM
+  </footer>
+
+  <script>
+    // Banner dinámico
+    const frases = [
+      "♒ Soy Jardy, estudiante de Computación Científica en la UNMSM",
+      "👩‍💻 Apasionada por los sistemas operativos y las matemáticas",
+      "💙 Fundadora de TeachEmpat contra el ciberbullying",
+      "🚀 Siempre aprendiendo, creciendo y compartiendo"
+    ];
+    let i=0;
+    function cambiarFrase(){
+      document.getElementById("mensaje").innerText=frases[i];
+      i=(i+1)%frases.length;
+    }
+    setInterval(cambiarFrase,3000);
+    cambiarFrase();
+
+    // Contenido dinámico
+    function mostrar(seccion){
+      let contenido=document.getElementById("contenido");
+
+      if(seccion==="sobre"){
+        contenido.innerHTML=`
+          <div class="perfil">
+            <h2>Hola, soy Jardy</h2>
+            <p>Estudiante de <b>Computación Científica en la UNMSM</b>, apasionada por los sistemas operativos,
+            las matemáticas aplicadas y la programación. 
+            Trabajo en <b>KFC</b> part-time, lo que me ha enseñado disciplina, organización y trato con clientes. 
+            Mi meta es aplicar la tecnología y la empatía para generar un impacto positivo.</p>
+          </div>`;
+      }
+      else if(seccion==="formacion"){
+        contenido.innerHTML=`
+          <h2>🎓 Formación Académica</h2>
+          <ul>
+            <li><b>UNMSM</b> - Computación Científica (Ciclo VI, 2021-2 a 2025-I)</li>
+            <li>Cursos principales: Álgebra Lineal, Cálculo Multivariable, Métodos Numéricos, 
+                Estructuras de Datos, Sistemas Operativos, Bases de Datos</li>
+          </ul>`;
+      }
+      else if(seccion==="intereses"){
+        contenido.innerHTML=`
+          <h2>✨ Intereses</h2>
+          <ul>
+            <li>👩‍💻 Programación y desarrollo web</li>
+            <li>📘 Sistemas Operativos y Linux</li>
+            <li>📊 Matemáticas aplicadas y métodos numéricos</li>
+            <li>🌈 Educación y proyectos sociales (TeachEmpat)</li>
+            <li>🎶 Música y escritura creativa</li>
+          </ul>`;
+      }
+      else if(seccion==="cursos"){
+        contenido.innerHTML=`
+          <h2>📚 Mis Cursos</h2>
+
+          <div class="card">
+            <h3>📌 Ciclo 3</h3>
+            <ul>
+              <li>Cálculo III</li>
+              <li>Elementos de Álgebra y Geometría</li>
+              <li>Algorítmica y Fundamentos de Programación</li>
+              <li>Matemática Discreta y Computacional</li>
+              <li>Inglés I</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>📌 Ciclo 4</h3>
+            <ul>
+              <li>Cálculo IV</li>
+              <li>Álgebra</li>
+              <li>Modelos Matemáticos de la Física</li>
+              <li>Estructura de Datos</li>
+              <li>Inglés II</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>📌 Ciclo 5</h3>
+            <ul>
+              <li>Análisis Real</li>
+              <li>Ecuaciones Diferenciales Ordinarias</li>
+              <li>Base de Datos e Ingeniería de Software</li>
+              <li>Métodos Numéricos y Programación I</li>
+              <li>Inglés III</li>
+            </ul>
+          </div>
+
+            <div class="card">
+            <h3>📌 Ciclo 6</h3>
+            <ul>
+                <li>Análisis Funcional I</li>
+                <li>Probabilidad e Inferencia Estadística</li>
+                <li>Métodos Numéricos II</li>
+                <li>
+                <a href="https://drive.google.com/file/d/1BBgMxurQL-yQZcrNuSvNjWz7EBucKdXn/view?usp=drive_link" target="_blank">
+                    Sistemas Operativos
+                </a>
+                </li>
+                <li>Técnicas de Modelamiento</li>
+            </ul>
+            </div>
+
+        `;
+      }
+      else if(seccion==="proyectos"){
+        contenido.innerHTML=`
+          <h2>💻 Proyectos</h2>
+          <div class="columns">
+
+            <div class="card">
+              <h3>🌈 TeachEmpat</h3>
+              <p>Proyecto de prevención contra el <b>ciberbullying</b> en niñas, niños y adolescentes,
+              combinando empatía y tecnología.  
+              <br><br>
+              <a href="https://drive.google.com/drive/folders/1GvkhdD5_wXG1uhmCXV6u1sOPKRPB89t9?usp=drive_link" 
+                 target="_blank">📂 Ver información del proyecto</a></p>
+            </div>
+
+            <div class="card">
+              <h3>📘 Página de Sistemas Operativos</h3>
+              <p>Portal dinámico con contenidos del curso, prácticas y bibliografía.</p>
+            </div>
+
+          </div>`;
+      }
+      else if(seccion==="extras"){
+        contenido.innerHTML=`
+          <h2>🌈 Más sobre mí</h2>
+          <ul>
+            <li>💙 Creo en la empatía y en usar la tecnología para ayudar a otros.</li>
+            <li>🎓 Orgullosamente estudiante de la <b>UNMSM</b>.</li>
+          </ul>`;
+      }
+      else if(seccion==="contacto"){
+        contenido.innerHTML=`
+          <h2>📞 Contacto</h2>
+          <ul>
+            <li>Email: <a href="mailto:jardy@correo.com">jardy@correo.com</a></li>
+            <li>GitHub: <a href="https://github.com/tuusuario" target="_blank">github.com/tuusuario</a></li>
+            <li>LinkedIn: <a href="https://linkedin.com/in/tuusuario" target="_blank">linkedin.com/in/tuusuario</a></li>
+          </ul>`;
+      }
+    }
+  </script>
+</body>
+</html>
